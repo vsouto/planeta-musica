@@ -1,0 +1,87 @@
+<ion-view title="Metronomo">
+<ion-nav-buttons side="right">
+  <button class="button button-icon icon ion-wrench" ng-click="setupMetronomo()"></button>  
+</ion-nav-buttons>
+
+  <ion-content>
+  <img src="img/logo-final.png" class="metro-logo" id="startstop" data-status="Iniciar">
+	  
+  <div id="inputs"></div>
+  <div class="status"></div>
+  </ion-content>
+  
+  <script id="setup.html" type="text/ng-template">
+	  <ion-modal-view>
+		<ion-header-bar>
+		  <h1 class="title">Configurações</h1>
+		</ion-header-bar>
+		<ion-content>
+		  Selecione o aúdio:
+		  <ion-list>
+			  <ion-item ng-click="setAudio('ping')">
+				Ping
+			  </ion-item>
+			  <ion-item ng-click="setAudio('tick')">
+				Click
+			  </ion-item>
+			  <ion-item ng-click="setAudio('classico')">
+				Clássico
+			  </ion-item>
+			  <ion-item ng-click="setAudio('4d')">
+				4d
+			  </ion-item>
+			  <ion-item ng-click="setAudio('lata')">
+				Lata
+			  </ion-item>
+		</ion-list>
+		</ion-content>
+	  </ion-modal-view>
+	</script>
+	
+	<audio>
+	  <source src="/audio/ping.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
+	<audio>
+	  <source src="/audio/lata.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
+	<audio>
+	  <source src="/audio/4d.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
+	
+</ion-view>
+
+<script>
+  $( function() {
+    
+  });
+  
+	/*global $ Raphael soundManager metronome*/
+
+	function tick(t) {
+		//$("<div />").html(t % 2 === 1 ? "Tick" : "Tock").addClass("statusline").appendTo(".status");
+		$("#count").html(t);    
+	}
+
+	function done() {
+		//$("<div />").html("Done!").addClass("statusline").css("background-color", "#FFFF99").appendTo(".status");
+		$("#startstop").html("Iniciar");
+	}
+
+	var audio_file = "audio/4d.wav?raw=true";
+	
+	var m = metronome({
+		len: 200,
+		angle: 20,
+		tick: tick,
+		complete: done,
+		audio: audio_file
+	});
+
+	m.make_input("#inputs");
+
+	//m.shapes().outline.attr("fill", "#0962ba");
+	//m.shapes().arm.attr("stroke", "#EEE");
+</script>

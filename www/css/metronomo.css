@@ -1,0 +1,48 @@
+.example {
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.status {
+	width: 100px;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+.statusline {
+	font-size: 10px;
+	background-color: #E0E0E0;
+	margin: 3px 0;
+	padding: 2px;
+}
+
+.metr_input {
+   width: 40px;
+   margin-right: 10px;
+   text-align: center;
+}
+
+#count {
+	width: 50px;
+	display: inline-block;
+	text-align: right;
+}
+
+.scroll{
+
+	padding: 8px;
+}
+
+#tempo {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+  
+.metro-logo{
+	max-width: 84%;
+	max-height: 60%;
+}
